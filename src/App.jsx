@@ -3,7 +3,6 @@ import "./App.css";
 import Accordion from "./components/accordian";
 
 function App() {
-  <Accordion />;
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
 
@@ -17,10 +16,10 @@ function App() {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [running]);
-
+  }, [running, setTime]);
   return (
     <>
+      <Accordion />;
       <div>
         <h1>StopWatch</h1>
         <span>{"0" + Math.floor((time / 6000) % 60)}:</span>
@@ -42,7 +41,7 @@ function App() {
         >
           Stop
         </button>
-        <button onClick={(setTime = 0)}>Reset</button>
+        <button onClick={() => setTime(0)}>Reset</button>
       </div>
     </>
   );
