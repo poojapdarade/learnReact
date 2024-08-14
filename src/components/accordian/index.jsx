@@ -5,6 +5,7 @@ export default function Accordion() {
   const [selected, setSelected] = useState(null);
   return (
     <div className="wrapper">
+      <h2>Accordian</h2>
       <div className="accordion">
         {data && data.length > 0 ? (
           data.map((dataItem) => (
