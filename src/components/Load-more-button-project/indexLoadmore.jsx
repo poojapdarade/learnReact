@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 async function fetchProducts(count) {
-  console.log(count);
   try {
     const response = await fetch(
       `https://dummyjson.com/products?limit=20&skip=${
@@ -10,15 +9,9 @@ async function fetchProducts(count) {
     );
 
     const result = await response.json();
-    if (result && result.product && result.products.length) {
-      setProducts(result.products);
-      setLoading(false);
-    }
-    console.log(result);
+
     return result;
   } catch (e) {
-    console.log(e);
-    setLoading(false);
     throw e;
   }
 }
@@ -29,10 +22,17 @@ export function LoadMoreData() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    setLoading(true);
     fetchProducts(count)
-      .then((products) => {})
+      .then((result) => {
+        const products = result.products;
+        if (products && products.length) {
+          setProducts(products);
+          setLoading(false);
+        }
+      })
       .catch((err) => {
-        console.log(err);
+        setLoading(false);
       });
   }, [count]);
 
@@ -43,17 +43,21 @@ export function LoadMoreData() {
   return (
     <div className="container">
       <div className="product">
-        {products && products.length
-          ? products.map((item) => (
-              <div key={item.id}>
-                <img src={item.thumbnail} alt={item.title} />
-                <p>{item.title}</p>
-              </div>
-            ))
-          : null}
+        {products?.length > 0 &&
+          products.map((item) => (
+            <div key={item.id}>
+              <img src={item.thumbnail} alt={item.title} />
+              <p>{item.title}</p>
+            </div>
+          ))}
       </div>
       <div>
-        <button className="Button Container">Load More Button</button>
+        <button
+          onClick={() => setCount(count + 1)}
+          className="Button Container"
+        >
+          Load More Button
+        </button>
       </div>
     </div>
   );
