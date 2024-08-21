@@ -4,6 +4,7 @@ import { RandomColor } from "./components/Random-color-generator/indexRandomColo
 import { Stopwatch } from "./components/stopwatch/indexStopwatch";
 import { StarRating } from "./components/Star-Rating/starRating";
 import { LoadMoreData } from "./components/Load-more-button-project/indexLoadmore";
+import { QRCodeGenerator } from "./components/QR-Code/indexQRCode";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <RandomColor />
       <StarRating />
       <LoadMoreData />
+      <QRCodeGenerator />
     </div>
   );
 }
