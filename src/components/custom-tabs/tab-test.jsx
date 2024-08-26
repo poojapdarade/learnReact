@@ -12,7 +12,5 @@ export function TabTest() {
     { label: "Tab 4", content: <RandomComponent /> },
   ];
 
-  function handleChange(currentTabIndex) {}
-
-  return <Tabs tabsContent={tabs} onChange={handleChange} />;
+  return <Tabs tabsContent={tabs} />;
 }
