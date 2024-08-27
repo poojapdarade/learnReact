@@ -1,5 +1,6 @@
 import "./App.css";
-import { ModelTest } from "./components/model-popup/model-test";
+import { GithubProfileFinder } from "./components/github-profile-finder/githubindex";
+//import { ModelTest } from "./components/model-popup/model-test";
 // import { Accordion } from "./components/accordion";
 // import { RandomColor } from "./components/Random-color-generator/indexRandomColor";
 // import { Stopwatch } from "./components/stopwatch/indexStopwatch";
@@ -25,8 +26,9 @@ function App() {
       <LightDarkMode />
       <TreeView menus={menus} />
       <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} />
-      <TabTest />*/}
-      <ModelTest  />
+      <TabTest />
+      <ModelTest  />*/}
+      <GithubProfileFinder />
     </div>
   );
 }
