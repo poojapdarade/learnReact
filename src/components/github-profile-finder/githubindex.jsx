@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { User } from "./user";
 
 export function GithubProfileFinder() {
-  const [username, setUsername] = useState("poojadarade");
+  const [username, setUsername] = useState("poojapdarade");
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -11,11 +12,14 @@ export function GithubProfileFinder() {
     if (data) {
       setUserData(data);
       setLoading(false);
+      setUsername("");
     }
     console.log(data);
   }
 
-  function handleSubmit() {}
+  function handleSubmit() {
+    fetchGithubUserData();
+  }
 
   useEffect(() => {
     fetchGithubUserData();
@@ -37,6 +41,7 @@ export function GithubProfileFinder() {
         />
         <button onClick={handleSubmit}>Search</button>
       </div>
+      {userData !== null ? <User user={userData} /> : null}
     </div>
   );
 }
