@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { User } from "./user";
+import "./githubstyle.css";
 
 export function GithubProfileFinder() {
   const [username, setUsername] = useState("poojapdarade");
@@ -14,7 +15,6 @@ export function GithubProfileFinder() {
       setLoading(false);
       setUsername("");
     }
-    console.log(data);
   }
 
   function handleSubmit() {
