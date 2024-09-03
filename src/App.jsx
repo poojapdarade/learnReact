@@ -1,4 +1,5 @@
 import "./App.css";
+import { FeatureFlags } from "./components/feature-flag";
 //import { GithubProfileFinder } from "./components/github-profile-finder/githubindex";
 //import { ModelTest } from "./components/model-popup/model-test";
 // import { Accordion } from "./components/accordion";
@@ -29,6 +30,10 @@ function App() {
       <TabTest />
       <ModelTest  />
       <GithubProfileFinder />*/}
+
+      <FeatureFlagGlobalState>
+        <FeatureFlags />
+      </FeatureFlagGlobalState>
     </div>
   );
 }
