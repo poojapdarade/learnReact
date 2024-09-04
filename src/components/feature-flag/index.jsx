@@ -1,8 +1,8 @@
-import { LightDarkMode } from "./components/light-dark mode";
+import { LightDarkMode } from "..light-dark mode";
 
 export function FeatureFlags() {
   const componentsToRender = [
-    { key: "showLightDarkMode", component: <LightDarkMode /> },
+    { key: "showLightAndDarkMode", component: <LightDarkMode /> },
   ];
   return (
     <div>
